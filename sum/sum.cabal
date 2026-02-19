@@ -1,0 +1,22 @@
+cabal-version:      2.4
+name:               sum
+version:            0.1.0.0
+synopsis:           A simple sum function with tests.
+license:            MIT
+author:             Luis Flores
+maintainer:         luis-flores@example.com
+
+library
+    exposed-modules:  Sum
+    build-depends:    base >= 4.14 && < 5
+    hs-source-dirs:   src
+    default-language: Haskell2010
+
+test-suite sum-test
+    default-language: Haskell2010
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          SumSpec.hs
+    build-depends:    base >= 4.14 && < 5
+                    , hspec
+                    , sum
