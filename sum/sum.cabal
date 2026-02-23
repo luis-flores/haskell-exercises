@@ -20,3 +20,11 @@ test-suite sum-test
     build-depends:    base >= 4.14 && < 5
                     , hspec
                     , sum
+                    , process
+
+executable sum-exe
+    main-is:          Main.hs
+    hs-source-dirs:   app
+    build-depends:    base >= 4.14 && < 5
+                    , sum
+    default-language: Haskell2010

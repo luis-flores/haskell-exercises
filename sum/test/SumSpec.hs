@@ -1,7 +1,8 @@
 module Main where
 
-import Test.Hspec
 import Sum (sumTwo)
+import System.Process (readProcess)
+import Test.Hspec
 
 main :: IO ()
 main = hspec $ do
@@ -17,3 +18,8 @@ main = hspec $ do
 
     it "adds zero correctly" $ do
       sumTwo 10 0 `shouldBe` 10
+
+  describe "Integración (sum-exe)" $ do
+    it "el programa completo suma correctamente" $ do
+      salida <- readProcess "cabal" ["run", "sum-exe", "--", "-v0"] "5\n7\n"
+      salida `shouldContain` "La suma es: 12"
